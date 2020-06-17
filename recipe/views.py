@@ -85,6 +85,8 @@ def authoradd(request):
                     bio=data['bio']
                 )
                 return HttpResponseRedirect(reverse('homepage'))
+    else:
+        return render(request, 'denied.html')
 
     form = AuthorAddForm()
     return render(request, html, {'form': form})
